@@ -3,23 +3,23 @@ import { getCities } from "../api/citiesApi";
 import SideBar from "../components/SideBar";
 
 const Root = () => {
-  const cities = useLoaderData();
+  const { cities } = useLoaderData() as Awaited<ReturnType<typeof rootLoader>>;
 
   return (
     <>
       <main className="full-height flex w-full">
-        <SideBar />
+        <SideBar cities={cities} />
         <Outlet />
       </main>
     </>
   );
 };
 
-//React router loader
-export const citiesLoader = async () => {
-  const data = await getCities();
+//React router data loader
+export const rootLoader = async () => {
+  const cities = await getCities();
 
-  return { data };
+  return { cities };
 };
 
 export default Root;
