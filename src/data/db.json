@@ -21,8 +21,8 @@
       ]
     },
     {
-      "name": "KrakĂłw",
-      "voivodeship": "maĹopolskie",
+      "name": "Kraków",
+      "voivodeship": "Małopolskie",
       "description": "KrakĂłw, StoĹeczne KrĂłlewskie Miasto KrakĂłw â miasto na prawach powiatu poĹoĹźone w poĹudniowej Polsce nad WisĹÄ, drugie co do liczby mieszkaĹcĂłw[1][5] i powierzchni miasto kraju[1]. Formalna stolica Polski do 1795 roku i miasto koronacyjne oraz z nekropoliÄ, na WzgĂłrzu Wawelskim, w podziemiach Katedry,krĂłlĂłw Polski. Od 1000 roku nieprzerwanie stolica diecezji krakowskiej (jednej z piÄciu w Ăłwczesnej Polsce), a od 1925 archidiecezji i metropolii. Lokowany przed 1228 rokiem, ponownie w 1257 r.[6]. Od odzyskania niepodlegĹoĹci w 1918 r. miasto wojewĂłdzkie (od 1999 r. siedziba wĹadz wojewĂłdztwa maĹopolskiego), jest takĹźe centralnym oĹrodkiem metropolitalnym aglomeracji krakowskiej i Krakowskiego Obszaru Metropolitalnego. KrakĂłw jest stolicÄ historycznej MaĹopolski. LeĹźy na obszarze Bramy Krakowskiej, Niecki NidziaĹskiej i PogĂłrza Zachodniobeskidzkiego.",
       "picture_url": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Wawel_castle.jpg",
       "known_places": [
@@ -38,8 +38,8 @@
       ]
     },
     {
-      "name": "PoznaĹ",
-      "voivodeship": "wielkopolskie",
+      "name": "Poznań",
+      "voivodeship": "Wielkopolskie",
       "description": "PoznaĹ, StoĹeczne Miasto PoznaĹ[6] â miasto na prawach powiatu w zachodniej Polsce, poĹoĹźone na Pojezierzu Wielkopolskim, nad rzekÄ WartÄ, u ujĹcia Cybiny. Historyczna stolica Wielkopolski, od 1999 r. siedziba wĹadz wojewĂłdztwa wielkopolskiego i powiatu poznaĹskiego. PiÄte pod wzglÄdem liczby ludnoĹci miasto w Polsce (546 859 mieszkaĹcĂłw w grudniu 2021 r.) i Ăłsme pod wzglÄdem powierzchni (261,9 kmÂ˛)[7]. PoznaĹ wraz z powiatem poznaĹskim i gminami Oborniki, Skoki, SzamotuĹy i Ĺrem tworzy aglomeracjÄ poznaĹskÄ, zamieszkaĹÄ przez ponad 1,2 mln osĂłb[8][9]. W 2018 think tank Globalization and World Cities (GaWC), badajÄcy wzajemne stosunki pomiÄdzy miastami Ĺwiata w kontekĹcie globalizacji, uznaĹ PoznaĹ za metropoliÄ globalnÄ (Gamma-)[10]. PoznaĹ czÄsto plasuje siÄ w czoĹĂłwce miast o bardzo wysokiej jakoĹci edukacji i bardzo wysokim standardzie Ĺźycia[11]. Zajmuje rĂłwnieĹź wysokie miejsce pod wzglÄdem bezpieczeĹstwa i jakoĹci opieki zdrowotnej[12]. Miasto PoznaĹ wielokrotnie zdobyĹo takĹźe nagrodÄ âSuperbrandsâ za markÄ miasta bardzo wysokiej jakoĹci[13].",
       "picture_url": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Poznan_10-2013_img10_Town_hall.jpg",
       "known_places": [
@@ -57,8 +57,8 @@
       ]
     },
     {
-      "name": "ĹĂłdĹş",
-      "voivodeship": "ĹĂłdzkie",
+      "name": "Łódź",
+      "voivodeship": "Łódzkie",
       "description": "ĹĂłdĹş â miasto na prawach powiatu w Ĺrodkowej Polsce, w historycznej ziemi ĹÄczyckiej. Siedziba wĹadz wojewĂłdztwa ĹĂłdzkiego, powiatu ĹĂłdzkiego wschodniego oraz gminy Nowosolna, przejĹciowa siedziba wĹadz paĹstwowych w 1945 roku[5]. OĹrodek akademicki (19 uczelni[6]), kulturalny i przemysĹowy. Przed przemianami polityczno-gospodarczymi w 1989 r. centrum przemysĹu wĹĂłkienniczego i filmowego. Od 1910 siedziba diecezji ĹlÄsko-ĹĂłdzkiej KoĹcioĹa Starokatolickiego MariawitĂłw. Siedziba rzymskokatolickiej diecezji ĹĂłdzkiej od 1920 roku, metropolii ĹĂłdzkiej od 2004 roku. Od 1948 roku siedziba prawosĹawnej diecezji ĹĂłdzko-poznaĹskiej. WaĹźny oĹrodek Ĺźycia religijnego, ekumenicznego i dialogu miÄdzyreligijnego ĹĂłdĹş jest czwartym miastem w Polsce pod wzglÄdem liczby ludnoĹci (664 860 mieszkaĹcĂłw; po Warszawie, Krakowie i WrocĹawiu)[2] i czwartym pod wzglÄdem powierzchni (293,25 kmÂ˛; po Warszawie, Krakowie i Szczecinie)[1]. Miasto naleĹźy do Unii Metropolii Polskich[7] i ZwiÄzku Miast Polskich[8], ZwiÄzku PowiatĂłw Polskich[9], a takĹźe do stowarzyszenia Eurocities[10] oraz Stowarzyszenia Zdrowych Miast Polskich[11].",
       "picture_url": "https://upload.wikimedia.org/wikipedia/commons/c/c1/%C5%81%C3%B3d%C5%BA%2C_Plac_Ko%C5%9Bcielny%2C_ko%C5%9Bci%C3%B3%C5%82_Wniebowzi%C4%99cia_NMP%2C_1882%E2%80%931892_-1.JPG",
       "known_places": [
@@ -74,7 +74,7 @@
     },
     {
       "name": "Lublin",
-      "voivodeship": "lubelskie",
+      "voivodeship": "Lubelskie",
       "description": "Lublin (Ĺac. Lublinum) â miasto na prawach powiatu we wschodniej Polsce, stolica wojewĂłdztwa i powiatu lubelskiego, centralny oĹrodek aglomeracji lubelskiej. DziewiÄte co do wielkoĹci populacji miasto w Polsce, drugie w MaĹopolsce (334 681 mieszkaĹcĂłw (stan na 30 czerwca 2021)[4]. PoĹoĹźone na WyĹźynie Lubelskiej nad BystrzycÄ, na dwĂłch odmiennych obszarach. CzÄĹÄ zachodnia ma urozmaiconÄ rzeĹşbÄ terenu. WystÄpujÄ tam liczne wÄwozy, doliny i wzgĂłrza. CzÄĹÄ wschodnia jest pĹaska. Lublin jest ulokowany ok. 170 km od Warszawy, nieopodal granicy krain historycznych: MaĹopolski i Rusi Czerwonej i ok. 100 km od przejĹcia granicznego z UkrainÄ. Osada handlowa, poĹoĹźona na szlaku prowadzÄcym z okolic Morza Czarnego, istniaĹa w tym miejscu od VI w. Od X do XV w. Lublin naleĹźaĹ do jednostki administracyjnej, ktĂłrej centrum byĹ Sandomierz. W I Rzeczypospolitej byĹ waĹźnym oĹrodkiem administracyjnym, handlowym i kulturalnym. Od poĹowy XVII w. i w XVIII w. miasto podupadĹo i zuboĹźaĹo. W wyniku III rozbioru znalazĹo siÄ w zaborze austriackim, nastÄpnie kolejno: w KsiÄstwie Warszawskim i KrĂłlestwie Polskim. W 3. Äwierci XIX w. Lublin, wĹÄczony KolejÄ NadwiĹlaĹskÄ do rosyjskiej sieci kolejowej, szybko rozrĂłsĹ siÄ i nabraĹ charakteru przemysĹowego. ZmieniĹ siÄ takĹźe jego ksztaĹt urbanistyczny. W pierwszej i drugiej wojnie Ĺwiatowej padĹ ofiarÄ gospodarki rabunkowej i Holokaustu. W okresie PRL nastÄpiĹ gwaĹtowny rozwĂłj Lublina. W tym czasie ludnoĹÄ wzrosĹa ponad trzykrotnie. UmocniĹ siÄ akademicki charakter miasta. Zbudowano szereg zakĹadĂłw przemysĹowych, wzniesiono nowe dzielnice mieszkaniowe. Od 2004 przeprowadzane sÄ liczne inwestycje z funduszy Unii Europejskiej. Miasto rozwija siÄ jako oĹrodek nauki, kultury, turystyki, sportu i rekreacji, a takĹźe usĹug i przemysĹu. Umacnia siÄ jako wÄzeĹ transportowy: posiada ekspresowÄ obwodnicÄ w ciÄgu Via Carpathia oraz port lotniczy. Lublin jest czĹonkiem Unii Metropolii Polskich, siedzibÄ instytucji samorzÄdowych i paĹstwowych, konsulatĂłw, brygady litewsko-polsko-ukraiĹskiej, archidiecezji i metropolii KoĹcioĹa katolickiego oraz diecezji KoĹcioĹa prawosĹawnego.",
       "picture_url": "https://upload.wikimedia.org/wikipedia/commons/8/84/Lublin%2C_trzy_wie%C5%BCe_%282007-04-01%29.jpg",
       "known_places": [
@@ -91,8 +91,8 @@
       ]
     },
     {
-      "name": "RzeszĂłw",
-      "voivodeship": "podkarpackie",
+      "name": "Rzeszów",
+      "voivodeship": "Podkarpackie",
       "description": "RzeszĂłw â miasto na prawach powiatu w poĹudniowo-wschodniej Polsce, stolica wojewĂłdztwa podkarpackiego i oĹrodek aglomeracji rzeszowskiej. WedĹug najnowszych danych GUS z 30 czerwca 2022 r. RzeszĂłw zamieszkuje 196 726 osĂłb[4][3], co czyni go 15. miastem Polski pod wzglÄdem liczby ludnoĹci[4][5]. W mieĹcie znajdujÄ siÄ dwie duĹźe uczelnie paĹstwowe â Uniwersytet Rzeszowski (4 kolegia) i Politechnika Rzeszowska (7 wydziaĹĂłw) oraz kilka niepublicznych, miÄdzy innymi WyĹźsza SzkoĹa InĹźynieryjno-Ekonomiczna, WSPiA Rzeszowska SzkoĹa WyĹźsza, WyĹźsza SzkoĹa Informatyki i ZarzÄdzania oraz WyĹźsze Seminarium Duchowne. Do infrastruktury Rzeszowa naleĹźy miÄdzynarodowy port lotniczy w Jasionce. W jego bezpoĹrednim sÄsiedztwie zlokalizowany jest Podkarpacki Park Naukowo-Technologiczny Aeropolis, skupiajÄcy przemysĹ wysokiej technologii. Na pĂłĹnocnych obrzeĹźach miasta dziaĹa rĂłwnieĹź specjalna strefa ekonomiczna pod nazwÄ Park Naukowo-Technologiczny RzeszĂłw-Dworzysko, utworzona z inicjatywy powiatu rzeszowskiego. W mieĹcie dziaĹajÄ trzy konsulaty honorowe: Niemiec, SĹowacji i Ukrainy. RzeszĂłw jest czĹonkiem Unii Metropolii Polskich oraz Stowarzyszenia Eurocities zrzeszajÄcego miasta europejskie. RzeszĂłw otrzymaĹ status miasta na prawie magdeburskim z nadania krĂłla Kazimierza Wielkiego 19 stycznia 1354. Od tego czasu byĹ RzeszĂłw formalnie do 1845 miastem prywatnym i rezydencjÄ magnackÄ. Pierwszym wĹaĹcicielem miasta byĹ rycerz Jan PakosĹawic ze StroĹźysk, ktĂłrego wspomniany przywilej Kazimierza Wielkiego upowaĹźniĹ do nowej lokacji przestrzennej na poĹudnie od pierwotnej osady (dziĹ os. StaromieĹcie)[6]. W 1633 RzeszĂłw uzyskaĹ prawo skĹadu[7]. Miasto leĹźaĹo pierwotnie na zachodnich rubieĹźach Rusi Czerwonej, przyĹÄczonej do Polski w rezultacie wypraw Kazimierza Wielkiego, zaĹ administracyjnie w okresie staropolskim na obszarze ziemi przemyskiej wojewĂłdztwa ruskiego[8], blisko granic z ziemiÄ sanockÄ i z wojewĂłdztwem sandomierskim. Po I rozbiorze Polski w 1772 RzeszĂłw wszedĹ w skĹad monarchii austriackiej, a w 1782 zostaĹ stolicÄ cyrkuĹu (poczÄtkowo na krĂłtko â pilĹşnieĹskiego, a nastÄpnie rzeszowskiego)[9][10]. Od 1869 RzeszĂłw funkcjonowaĹ w obrÄbie autonomicznej Galicji. Po odzyskaniu niepodlegĹoĹci w 1918 znalazĹ siÄ w wojewĂłdztwie lwowskim. Po zajÄciu przez wojska sowieckie w 1944 RzeszĂłw zostaĹ desygnowany na siedzibÄ wĹadz wojewĂłdzkich; od roku 1945 do 1998 byĹ stolicÄ wojewĂłdztwa rzeszowskiego, a od 1 stycznia 1999 jest stolicÄ wojewĂłdztwa podkarpackiego.",
       "picture_url": "https://upload.wikimedia.org/wikipedia/commons/3/38/Rzesz%C3%B3w%2C_ratusz%2C_XVII%2C_1897-1900_danz_001.jpg",
       "known_places": [
@@ -107,8 +107,8 @@
       ]
     },
     {
-      "name": "GdaĹsk",
-      "voivodeship": "pomorskie",
+      "name": "Gdańsk",
+      "voivodeship": "Pomorskie",
       "description": "GdaĹsk (kaszub. GduĹsk[6]; niem. Danzig; Ĺac. Gedanum, Dantiscum[7]; niderl. DanswÄłk[8]) â miasto na prawach powiatu w pĂłĹnocnej Polsce w wojewĂłdztwie pomorskim, poĹoĹźone nad Morzem BaĹtyckim u ujĹcia MotĹawy do WisĹy nad ZatokÄ GdaĹskÄ. Centrum kulturalne, naukowe i gospodarcze oraz wÄzeĹ komunikacyjny pĂłĹnocnej Polski, stolica wojewĂłdztwa pomorskiego. OĹrodek gospodarki morskiej z duĹźym portem handlowym. GdaĹsk z 486 022 mieszkaĹcami[5] zajmuje szĂłste miejsce w Polsce pod wzglÄdem liczby ludnoĹci, a siĂłdme miejsce pod wzglÄdem powierzchni â 263,44 kmÂ˛[4]. OĹrodek aglomeracji trĂłjmiejskiej, nazywanÄ teĹź gdaĹskÄ, wraz z GdyniÄ i Sopotem tworzÄ TrĂłjmiasto.Jest to miasto o ponadtysiÄcletniej historii, ktĂłrego toĹźsamoĹÄ na przestrzeni wiekĂłw ksztaĹtowaĹa siÄ pod wpĹywem rĂłĹźnych kultur. GdaĹsk byĹ rĂłwnieĹź najwiÄkszym miastem Rzeczypospolitej Obojga NarodĂłw, miastem krĂłlewskim i hanzeatyckim[9], posiadaĹ prawo do czynnego uczestnictwa w akcie wyboru krĂłla[10], w XVI w. byĹ najbogatszym w Rzeczypospolitej[11]. Obywatelstwo GdaĹska dawaĹo przywilej do posiadania ziemi[12]. NaleĹźaĹ do niezaleĹźnego terytorium miasta GdaĹska, poĹoĹźony byĹ w drugiej poĹowie XVI wieku w wojewĂłdztwie pomorskim[13]. Miasto byĹo teĹź waĹźnym oĹrodkiem kulturalnym. GdaĹsk uznawany jest za symboliczne miejsce wybuchu II wojny Ĺwiatowej oraz poczÄtku upadku komunizmu w Europie Ĺrodkowej. Na terenie miasta znajdujÄ siÄ liczne zabytki architektury, dziaĹa w nim wiele instytucji i placĂłwek kulturalnych. W GdaĹsku odbywajÄ siÄ najwiÄksze na Ĺwiecie miÄdzynarodowe targi bursztynu i wyrobĂłw bursztynowych Amberif[14][15].",
       "picture_url": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Gda%C5%84sk%2C_D%C5%82ugi_Targ_%28HB1%29.jpg",
       "known_places": [
@@ -125,8 +125,8 @@
       ]
     },
     {
-      "name": "WrocĹaw",
-      "voivodeship": "dolnoĹlÄskie",
+      "name": "Wrocław",
+      "voivodeship": "Dolnośląskie",
       "description": "WrocĹaw i ( niem. Breslau i, Ĺac. Wratislavia, cz. Vratislav) â miasto na prawach powiatu w poĹudniowo-zachodniej Polsce, siedziba wĹadz wojewĂłdztwa dolnoĹlÄskiego i powiatu wrocĹawskiego. PoĹoĹźone w Europie Ĺrodkowej, na Nizinie ĹlÄskiej, nad OdrÄ i czterema jej dopĹywami. Jest historycznÄ stolicÄ Dolnego ĹlÄska, a takĹźe caĹego ĹlÄska. Jest gĹĂłwnym miastem aglomeracji wrocĹawskiej. Trzecie pod wzglÄdem liczby ludnoĹci miasto w Polsce (Po Warszawie i Krakowie) â 674 312 mieszkaĹcĂłw (31.12.2021)[4], piÄte pod wzglÄdem powierzchni â 292,8 kmÂ˛[5]. Miasto byĹo stolicÄ ksiÄstwa wrocĹawskiego, siedzibÄ wĹadz pruskiej prowincji ĹlÄsk i rejencji wrocĹawskiej. Od 28 czerwca 1946 stolica wojewĂłdztwa wrocĹawskiego. Od 1 stycznia 1999 stolica wojewĂłdztwa dolnoĹlÄskiego, naleĹźy do Unii Metropolii Polskich i Eurocities.",
       "picture_url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Ratusz_wroclaw.JPG",
       "known_places": ["OgrĂłd JapoĹski", "Most Pokutnic", "Muzeum Narodowe"],
@@ -139,7 +139,7 @@
     },
     {
       "name": "Katowice",
-      "voivodeship": "ĹlÄskie",
+      "voivodeship": "Śląskie",
       "description": "Katowice (niem. Kattowitz, od marca 1953 r. do paĹşdziernika 1956 r. â StalinogrĂłd[3]) â miasto na prawach powiatu w Polsce, siedziba wĹadz wojewĂłdztwa ĹlÄskiego, gĹĂłwny oĹrodek GĂłrnoĹlÄskiego OkrÄgu PrzemysĹowego, najwiÄksze pod wzglÄdem ludnoĹci miasto konurbacji gĂłrnoĹlÄskiej, siedziba GĂłrnoĹlÄsko-ZagĹÄbiowskiej Metropolii, najwiÄksze pod wzglÄdem ludnoĹci i powierzchni miasto GĂłrnego ĹlÄska. PoczÄtki Katowic siÄgajÄ XVI wieku, kiedy byĹy oĹrodkiem rolniczym i kuĹşniczym, a ich gwaĹtowny rozwĂłj zostaĹ zapoczÄtkowany w poĹowie XIX wieku wraz z rozwojem przemysĹu i doprowadzeniem do miasta linii kolejowej. Prawa miejskie uzyskaĹy 11 wrzeĹnia 1865, po czym rozwijaĹy siÄ w szybkim tempie. Z liczbÄ 282 755 mieszkaĹcĂłw[2] w grudniu 2021 r. byĹy 11. miastem w kraju pod wzglÄdem liczby ludnoĹci i 12. pod wzglÄdem powierzchni (164,64 kmÂ˛). Zlokalizowane na trasie gĹĂłwnych szlakĂłw krajowych i miÄdzynarodowych zarĂłwno drogowych, jak i kolejowych. W Pyrzowicach funkcjonuje miÄdzynarodowy port lotniczy Katowice-Pyrzowice. StanowiÄ waĹźny w skali kraju oĹrodek gospodarczy, bÄdÄc centrum handlowo-usĹugowym ze znacznym udziaĹem dziaĹalnoĹci produkcyjnej. SÄ rĂłwnieĹź oĹrodkiem koncentracji specjalistycznych usĹug medycznych, funkcji akademickiej, kulturalnej oraz sportowej. W rankingu opublikowanym przez Globalization and World Cities Research Network, Katowice zostaĹy sklasyfikowane w V kategorii (sufficiency level cities) miast o znaczeniu globalnym[4].",
       "picture_url": "https://upload.wikimedia.org/wikipedia/commons/c/cf/MOs810_WG_2018_8_Zaleczansko_Slaski_%28Mariacka%2C_Katowice%29.jpg",
       "known_places": [
@@ -156,7 +156,7 @@
     },
     {
       "name": "Gdynia",
-      "voivodeship": "pomorskie",
+      "voivodeship": "Pomorskie",
       "description": "Gdynia (wymowa i, kaszub. GdiniĂ´, niem. Gdingen[a]) â miasto na prawach powiatu w pĂłĹnocnej Polsce, w wojewĂłdztwie pomorskim, poĹoĹźone nad Morzem BaĹtyckim, na PobrzeĹźu GdaĹskim i Pojezierzu Wschodniopomorskim. Wchodzi w skĹad TrĂłjmiasta (wraz z GdaĹskiem i Sopotem), jest zatem jednym z miast centralnych aglomeracji TrĂłjmiasta. WedĹug stanu na koniec 2021 roku Gdynia liczyĹa ok. 244 000 mieszkaĹcĂłw[2] (dwunaste miejsce w Polsce[3]) i zajmowaĹa powierzchniÄ ok. 135 kmÂ˛. Po nowym podziale dziaĹek terenu morskiego zwiÄkszyĹa powierzchniÄ do 391 kmÂ˛, z czego 66 proc. obejmuje obszar morski[4]. Jest najludniejszym w Polsce miastem niewojewĂłdzkim[5]. Prawa miejskie Gdynia uzyskaĹa 4 marca 1926[1]. Impulsem do rozwoju miasta byĹa budowa portu, ktĂłry powstaĹ w celu zapewnienia Polsce dostÄpu do morskich szlakĂłw i bazy marynarki wojennej wobec niepewnej sytuacji w Wolnym MieĹcie GdaĹsku. Szybki napĹyw ludnoĹci i dynamiczny rozwĂłj portu sprawiĹy, Ĺźe w ciÄgu kilkunastu lat po nadaniu praw miejskich Gdynia ze wsi rybackiej przeksztaĹciĹa siÄ w miasto zamieszkane przez blisko 130 tys. osĂłb (1939).",
       "picture_url": "https://upload.wikimedia.org/wikipedia/commons/1/11/00_sea_towers_%28April_2018%29.jpg",
       "known_places": [
