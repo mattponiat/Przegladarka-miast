@@ -1,3 +1,11 @@
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogTitle,
+  DialogDescription,
+} from "./ui/dialog";
+
 const Header = () => {
   return (
     <header className="flex h-16 w-full items-center justify-between border-b border-gray-200 px-20 py-5 text-slate-900">
@@ -6,60 +14,50 @@ const Header = () => {
       </a>
       <div>
         <nav className="flex gap-4 text-base font-medium">
-          <label htmlFor="my-modal-1" className="cursor-pointer">
-            O nas
-          </label>
-          <input type="checkbox" id="my-modal-1" className="modal-toggle" />
-          <label htmlFor="my-modal-1" className="modal cursor-pointer">
-            <label className="modal-box relative" htmlFor="">
-              <h3 className="text-lg font-bold">O nas</h3>
-              <p className="py-4">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum
-                obcaecati praesentium blanditiis et. Consequuntur optio tenetur
-                eos! Cupiditate nesciunt omnis est praesentium dolores illum,
-                veniam voluptatum consectetur vel nulla cumque officiis fugit
-                similique iste repellendus iusto pariatur amet voluptatibus
-                quos! Ullam fugiat voluptas id nam doloremque facere odio
-                aliquid reprehenderit?
-              </p>
-            </label>
-          </label>
-          <label htmlFor="my-modal-2" className="cursor-pointer">
-            Pomoc
-          </label>
-          <input type="checkbox" id="my-modal-2" className="modal-toggle" />
-          <label htmlFor="my-modal-2" className="modal cursor-pointer">
-            <label className="modal-box relative" htmlFor="">
-              <h3 className="text-lg font-bold">Pomoc</h3>
-              <p className="py-4">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum
-                obcaecati praesentium blanditiis et. Consequuntur optio tenetur
-                eos! Cupiditate nesciunt omnis est praesentium dolores illum,
-                veniam voluptatum consectetur vel nulla cumque officiis fugit
-                similique iste repellendus iusto pariatur amet voluptatibus
-                quos! Ullam fugiat voluptas id nam doloremque facere odio
-                aliquid reprehenderit?
-              </p>
-            </label>
-          </label>
-          <label htmlFor="my-modal-3" className="cursor-pointer">
-            Kontakt
-          </label>
-          <input type="checkbox" id="my-modal-3" className="modal-toggle" />
-          <label htmlFor="my-modal-3" className="modal cursor-pointer">
-            <label className="modal-box relative" htmlFor="">
-              <h3 className="text-lg font-bold">Kontakt</h3>
-              <p className="py-4">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum
-                obcaecati praesentium blanditiis et. Consequuntur optio tenetur
-                eos! Cupiditate nesciunt omnis est praesentium dolores illum,
-                veniam voluptatum consectetur vel nulla cumque officiis fugit
-                similique iste repellendus iusto pariatur amet voluptatibus
-                quos! Ullam fugiat voluptas id nam doloremque facere odio
-                aliquid reprehenderit?
-              </p>
-            </label>
-          </label>
+          <Dialog>
+            <DialogTrigger>O nas</DialogTrigger>
+            <DialogContent>
+              <DialogTitle>O nas</DialogTitle>
+              <DialogDescription>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Repudiandae iusto dicta modi nesciunt in ullam debitis eveniet
+                iure? Cum est deserunt nulla qui, aliquam aut sit quas deleniti
+                a, dignissimos ullam itaque placeat! Hic et, eligendi fuga
+                maiores neque veritatis nisi minus aliquam eum dolorem
+                consequuntur laudantium quae cum aliquid.
+              </DialogDescription>
+            </DialogContent>
+          </Dialog>
+          <Dialog>
+            <DialogTrigger>Pomoc</DialogTrigger>
+            <DialogContent>
+              <DialogTitle>Pomoc</DialogTitle>
+              <DialogDescription>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Consequuntur, tempore! Temporibus nobis at exercitationem
+                possimus quam? Omnis suscipit natus earum consequuntur! Atque
+                dicta accusantium consequatur minus aperiam dolore. Adipisci sed
+                impedit necessitatibus, soluta explicabo facilis officia ab
+                dolor. Corporis quis non dolorem tenetur ipsum amet deserunt,
+                iure suscipit consequuntur culpa!
+              </DialogDescription>
+            </DialogContent>
+          </Dialog>
+          <Dialog>
+            <DialogTrigger>Kontakt</DialogTrigger>
+            <DialogContent>
+              <DialogTitle>Kontakt</DialogTitle>
+              <DialogDescription>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim
+                ipsa dolor, eveniet ea non recusandae id earum inventore
+                delectus, consequatur tenetur doloribus provident repudiandae
+                magnam fuga. Cumque dolorem reiciendis praesentium quidem beatae
+                porro doloribus quam officiis aperiam. Porro placeat aliquam
+                reiciendis cumque perspiciatis totam, dolorem, adipisci autem
+                dignissimos doloribus distinctio?
+              </DialogDescription>
+            </DialogContent>
+          </Dialog>
         </nav>
       </div>
     </header>
