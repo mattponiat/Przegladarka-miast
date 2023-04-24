@@ -7,7 +7,7 @@ const Root = () => {
 
   return (
     <>
-      <main className="full-height flex w-full">
+      <main className="full-height flex w-full overflow-hidden">
         <SideBar cities={cities} />
         <Outlet />
       </main>

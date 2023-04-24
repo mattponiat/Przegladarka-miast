@@ -5,15 +5,15 @@ const City = () => {
   const { city } = useLoaderData() as Awaited<ReturnType<typeof cityLoader>>;
 
   return (
-    <div className="full-height flex w-full gap-14 pl-6 pt-8">
+    <div className="full-height flex w-full gap-14 overflow-auto overflow-x-hidden pl-6 pt-8">
       {city && (
         <>
-          <div className="flex w-full max-w-[600px] flex-col">
-            <div className="flex justify-between">
-              <h1 className="text-3xl font-semibold text-slate-900">
+          <div className="flex min-w-[600px] max-w-[600px] flex-col">
+            <div className="flex items-center justify-between">
+              <h1 className="text-[32px] font-semibold text-slate-900">
                 {city.name}
               </h1>
-              <div className="flex justify-center">
+              <div className="flex">
                 <button>Edit</button>
                 <button>Delete</button>
               </div>
@@ -21,24 +21,33 @@ const City = () => {
             <div className="my-6">
               <img
                 src={city.picture_url}
+                alt={city.name}
                 width={600}
                 height={400}
-                className="aspect-[4/3] rounded-lg"
+                className="aspect-[3/2] rounded-lg object-cover"
+                loading="lazy"
               />
             </div>
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-3 pb-6">
               <h4 className="text-xl font-semibold text-slate-900">Opis</h4>
-              <p className="text-slate-800">{city.description}</p>
+              <p className="text-base font-normal text-slate-800">
+                {city.description}
+              </p>
             </div>
           </div>
-          <div className="flex flex-col gap-6">
+          <div className="flex w-full max-w-full flex-col gap-6 pr-6">
             <div className="flex flex-col">
-              <h4 className="mb-6 text-xl font-semibold text-slate-900">
+              <h4 className="mb-6 mt-2 text-xl font-semibold text-slate-900">
                 Znane miejsca
               </h4>
               <div className="flex flex-col gap-3">
                 {city.known_places.map((place, i) => (
-                  <span key={i}>{place}</span>
+                  <span
+                    key={i}
+                    className="text-base font-medium text-slate-800"
+                  >
+                    {place}
+                  </span>
                 ))}
               </div>
             </div>
@@ -46,9 +55,14 @@ const City = () => {
               <h4 className="mb-6 text-xl font-semibold text-slate-900">
                 Interesujące linki
               </h4>
-              <div className="flex flex-col gap-3">
+              <div className="flex max-w-full flex-col gap-3 pb-6">
                 {city.links.map((link, i) => (
-                  <a target="_blank" href={link} key={i} className="underline">
+                  <a
+                    target="_blank"
+                    href={link}
+                    key={i}
+                    className="text-base font-medium text-slate-800 underline"
+                  >
                     {link}
                   </a>
                 ))}
