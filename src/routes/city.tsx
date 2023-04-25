@@ -5,7 +5,7 @@ const City = () => {
   const { city } = useLoaderData() as Awaited<ReturnType<typeof cityLoader>>;
 
   return (
-    <div className="full-height flex w-full gap-14 overflow-auto overflow-x-hidden pl-6 pt-8">
+    <div className="flex h-full w-full gap-14 overflow-auto overflow-x-hidden pl-6 pt-8">
       {city && (
         <>
           <div className="flex min-w-[600px] max-w-[600px] flex-col">

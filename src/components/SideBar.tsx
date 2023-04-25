@@ -1,15 +1,16 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 import { Cities } from "../types/types";
-import Input from "./ui/Input";
-import Label from "./ui/Label";
+import Input from "./ui/input";
+import Label from "./ui/label";
 import {
   Select,
   SelectTrigger,
   SelectValue,
   SelectContent,
   SelectItem,
-} from "./ui/Select";
+} from "./ui/select";
+import SideBarLayout from "./sideBarLayout";
 
 type SideBarProps = {
   cities: Cities[];
@@ -55,10 +56,10 @@ const SideBar = ({ cities }: SideBarProps) => {
     });
 
   return (
-    <div className="full-height sticky top-0 w-full max-w-sm border-r border-gray-200 px-2 pl-14 text-base text-slate-900">
-      <div className="full-height flex flex-col pb-6">
+    <SideBarLayout>
+      <div className="flex h-full flex-col pb-6">
         <div className="flex flex-col border-b border-gray-200 px-4 pb-6 pt-8">
-          <Label htmlFor="search" className="mb-[6px] font-medium">
+          <Label htmlFor="search" className="mb-[6px] w-fit font-medium">
             Wyszukaj
           </Label>
           <Input
@@ -71,7 +72,7 @@ const SideBar = ({ cities }: SideBarProps) => {
               setSearch(e.currentTarget.value);
             }}
           />
-          <Label htmlFor="voivodeship" className="mb-[6px] font-medium">
+          <Label htmlFor="voivodeship" className="mb-[6px] w-fit font-medium">
             Województwo
           </Label>
           <Select onValueChange={(value) => setVoivodeship(value)}>
@@ -96,24 +97,27 @@ const SideBar = ({ cities }: SideBarProps) => {
             </SelectContent>
           </Select>
         </div>
-        <div className="flex flex-col gap-2 px-4 pt-8 text-sm text-slate-900">
+        <div className="flex flex-col gap-2 px-4 pt-8">
           {filteredCities.map((city, i) => (
             <Link
-              to={`miasto/${city.name.toLowerCase()}`}
-              className="flex w-full items-start rounded-md border border-gray-200 py-2 pl-3"
+              to={`cities/${city.name.toLowerCase()}`}
+              className="w-full rounded-md border border-gray-200 py-2 pl-3"
               key={`${city}, ${i}`}
             >
               {city.name}
             </Link>
           ))}
         </div>
-        <div className="mx-4 mt-auto text-sm">
-          <button className="w-full rounded-md bg-slate-900 p-2 text-white transition-colors hover:bg-slate-700">
+        <div className="mt-auto px-4">
+          <Link
+            to="add-city"
+            className="block w-full rounded-md bg-slate-900 px-4 py-2 text-center text-white transition-colors hover:bg-slate-700"
+          >
             Dodaj nowe miasto
-          </button>
+          </Link>
         </div>
       </div>
-    </div>
+    </SideBarLayout>
   );
 };
 
