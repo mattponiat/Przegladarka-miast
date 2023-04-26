@@ -11,6 +11,7 @@ const FieldName = ({ city, updateCity }: FormFieldProps) => {
       <Input
         type="text"
         id="cityName"
+        name="cityName"
         placeholder="Wpisz nazwę miasta"
         value={city.name}
         onChange={(e) => {

@@ -10,6 +10,7 @@ const FieldLink = ({ city, updateCity }: FormFieldProps) => {
       </Label>
       <Textarea
         id="links"
+        name="links"
         placeholder="Wpisz interesujące linki oddzielone przecinkami"
         value={city.links}
         onChange={(e) =>

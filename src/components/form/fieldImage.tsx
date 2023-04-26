@@ -11,6 +11,7 @@ const FieldImage = ({ city, updateCity }: FormFieldProps) => {
       <Input
         type="text"
         id="image"
+        name="image"
         placeholder="Wprowadź URL do zdjęcia miasta"
         value={city.picture_url}
         onChange={(e) => {

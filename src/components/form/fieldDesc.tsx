@@ -10,6 +10,7 @@ const FieldDesc = ({ city, updateCity }: FormFieldProps) => {
       </Label>
       <Textarea
         id="desc"
+        name="desc"
         placeholder="Wpisz opis miasta"
         value={city.description}
         onChange={(e) => updateCity({ description: e.currentTarget.value })}

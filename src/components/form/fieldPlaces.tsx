@@ -10,6 +10,7 @@ const FieldPlaces = ({ city, updateCity }: FormFieldProps) => {
       </Label>
       <Textarea
         id="knownPlaces"
+        name="knownPlaces"
         placeholder="Wpisz znane miejsca oddzielone przecinkami"
         value={city.known_places}
         onChange={(e) =>
