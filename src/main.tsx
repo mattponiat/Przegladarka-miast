@@ -2,9 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Root, { rootLoader } from "./routes/root.tsx";
 import "./index.css";
-import Header from "./components/Header.tsx";
+import Header from "./components/header.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import City, { cityLoader } from "./routes/city.tsx";
+import AddCity from "./routes/addCity.tsx";
 
 const router = createBrowserRouter([
   {
@@ -13,11 +14,15 @@ const router = createBrowserRouter([
     loader: rootLoader,
     children: [
       {
-        path: "miasto/:name",
+        path: "cities/:name",
         element: <City />,
         loader: cityLoader,
       },
     ],
+  },
+  {
+    path: "/add-city",
+    element: <AddCity />,
   },
 ]);
 
