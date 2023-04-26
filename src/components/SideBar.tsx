@@ -43,7 +43,9 @@ const SideBar = ({ cities }: SideBarProps) => {
   const uniqueCities = cities
     .filter(
       (value, index, array) =>
-        array.findIndex((t) => t.voivodeship === value.voivodeship) === index
+        array.findIndex(
+          (t) => t.voivodeship.toLowerCase() === value.voivodeship.toLowerCase()
+        ) === index
     )
     .sort((a, b) => {
       if (a.voivodeship < b.voivodeship) {
