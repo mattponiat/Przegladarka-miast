@@ -1,8 +1,31 @@
-import { LoaderFunctionArgs, useLoaderData } from "react-router-dom";
-import { getCity } from "../api/citiesApi";
+import {
+  Link,
+  LoaderFunctionArgs,
+  useLoaderData,
+  useRevalidator,
+} from "react-router-dom";
+import { deleteCity, getCity } from "../api/citiesApi";
+import { Pencil, Trash2 } from "lucide-react";
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+} from "../components/ui/dialog";
 
 const City = () => {
   const { city } = useLoaderData() as Awaited<ReturnType<typeof cityLoader>>;
+  if (!city) throw new Error("City not found");
+
+  const revalidator = useRevalidator();
+
+  const handleDeleteCity = async () => {
+    await deleteCity(city.id);
+    revalidator.revalidate();
+  };
 
   return (
     <div className="flex h-full w-full gap-14 overflow-auto overflow-x-hidden pl-6 pt-8">
@@ -13,9 +36,37 @@ const City = () => {
               <h1 className="text-[32px] font-semibold text-slate-900">
                 {city.name}
               </h1>
-              <div className="flex">
-                <button>Edit</button>
-                <button>Delete</button>
+              <div className="flex gap-3">
+                <Link
+                  to={`/cities/${city.name.toLowerCase()}/edit`}
+                  className="flex items-center"
+                >
+                  <Pencil size={16} />
+                </Link>
+                <Dialog>
+                  <DialogTrigger>
+                    <Trash2 size={16} />
+                  </DialogTrigger>
+                  <DialogContent>
+                    <DialogHeader>
+                      <DialogTitle>
+                        Czy na pewno chcesz usunąć miasto?
+                      </DialogTitle>
+                    </DialogHeader>
+                    <DialogDescription>
+                      Kliknij przycisk aby usunąć miasto z listy.
+                    </DialogDescription>
+                    <DialogFooter>
+                      <Link
+                        to="/"
+                        onClick={handleDeleteCity}
+                        className="w-32 rounded-md bg-slate-900 px-4 py-2 text-center text-sm text-white transition-colors hover:bg-slate-700"
+                      >
+                        Usuń
+                      </Link>
+                    </DialogFooter>
+                  </DialogContent>
+                </Dialog>
               </div>
             </div>
             <div className="my-6">
