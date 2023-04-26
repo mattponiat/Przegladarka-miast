@@ -97,6 +97,12 @@
   max-height: calc(100vh - 64px);
 }
 
-input[type="search"]::placeholder {
-  color: #94a3b8;
+/*Use !important to overwrite shadcn/ui styles */
+input::placeholder,
+textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+textarea {
+  resize: none;
 }
