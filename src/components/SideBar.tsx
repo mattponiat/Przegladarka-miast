@@ -11,6 +11,7 @@ import {
   SelectItem,
 } from "./ui/select";
 import SideBarLayout from "./sideBarLayout";
+import { NavLink } from "react-router-dom";
 
 type SideBarProps = {
   cities: Cities[];
@@ -101,13 +102,17 @@ const SideBar = ({ cities }: SideBarProps) => {
         </div>
         <div className="flex flex-col gap-2 px-4 pt-8">
           {filteredCities.map((city, i) => (
-            <Link
+            <NavLink
               to={`cities/${city.name.toLowerCase()}`}
-              className="w-full rounded-md border border-gray-200 py-2 pl-3"
+              className={({ isActive, isPending }) =>
+                `w-full rounded-md border border-gray-200 py-2 pl-3 ${
+                  isActive || isPending ? "bg-slate-100" : ""
+                }`
+              }
               key={`${city}, ${i}`}
             >
               {city.name}
-            </Link>
+            </NavLink>
           ))}
         </div>
         <div className="mt-auto px-4">
