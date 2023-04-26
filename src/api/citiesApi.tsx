@@ -7,15 +7,19 @@ const citiesApi = axios.create({
 
 export const citiesUrlEndpoint = "/cities";
 
-//Get all cities
+/**
+ * Get all cities
+ */
 export const getCities = async () => {
   const { data } = await citiesApi.get<Cities[]>(citiesUrlEndpoint);
 
   return data;
 };
 
-//Get city based on name
-export const getCity = async (name: string) => {
+/**
+ * Get city based on city's name
+ */
+export const getCity = async (name: Cities["name"]) => {
   const { data } = await citiesApi.get<Cities[]>(citiesUrlEndpoint);
 
   const city = data.find(
@@ -25,7 +29,10 @@ export const getCity = async (name: string) => {
   return city ?? null;
 };
 
-//Add new city
+/**
+ * Add new city with given props.
+ * Returns city's data and post status
+ */
 export const addCity = async ({
   name,
   voivodeship,
@@ -34,7 +41,7 @@ export const addCity = async ({
   known_places,
   links,
 }: Cities) => {
-  const { data } = await citiesApi.post(citiesUrlEndpoint, {
+  const { data, status } = await citiesApi.post<Cities>(citiesUrlEndpoint, {
     name,
     voivodeship,
     description,
@@ -43,12 +50,24 @@ export const addCity = async ({
     links,
   });
 
+  return { data, status };
+};
+
+/**
+ * Update passed city's data
+ */
+export const updateCity = async (city: Cities) => {
+  const { data } = await citiesApi.patch(
+    `${citiesUrlEndpoint}/${city.id}`,
+    city
+  );
+
   return data;
 };
 
-//Update city's data
-export const updateCity = async (city: Cities) => {
-  const { data } = await citiesApi.patch(citiesUrlEndpoint, city);
-
-  return data;
+/**
+ * Delete city that matches city's id
+ */
+export const deleteCity = async (id: Cities["id"]) => {
+  return await citiesApi.delete(`${citiesUrlEndpoint}/${id}`);
 };
