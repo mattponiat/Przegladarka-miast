@@ -6,6 +6,7 @@ import Header from "./components/header.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import City, { cityLoader } from "./routes/city.tsx";
 import AddCity from "./routes/addCity.tsx";
+import EditCity from "./routes/editCity.tsx";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,11 @@ const router = createBrowserRouter([
   {
     path: "/add-city",
     element: <AddCity />,
+  },
+  {
+    path: "/cities/:name/edit",
+    element: <EditCity />,
+    loader: cityLoader,
   },
 ]);
 
