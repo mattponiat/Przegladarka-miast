@@ -30,6 +30,7 @@ const FieldName = ({ field, errors }: Props) => {
         placeholder="Wpisz nazwę miasta"
         value={field.value}
         onChange={field.onChange}
+        data-testid="NameInput"
       />
       <p className="text-sm text-muted-foreground">{errors.name?.message}</p>
     </div>

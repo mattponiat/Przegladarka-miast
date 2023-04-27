@@ -24,6 +24,7 @@ const FieldImage = ({ field, errors }: Props) => {
         Zdjęcie
       </Label>
       <Input
+        data-testid="PictureInput"
         type="text"
         id="picture_url"
         name="picture_url"

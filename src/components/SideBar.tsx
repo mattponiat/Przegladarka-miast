@@ -66,6 +66,7 @@ const SideBar = ({ cities }: SideBarProps) => {
             Wyszukaj
           </Label>
           <Input
+            data-testid="SearchCities"
             type="search"
             id="search"
             className="mb-4"
@@ -80,6 +81,7 @@ const SideBar = ({ cities }: SideBarProps) => {
           </Label>
           <Select onValueChange={(value) => setVoivodeship(value)}>
             <SelectTrigger
+              data-testid="SelectVoivodeshipList"
               id="voivodeship"
               className={
                 voivodeship === "" ? "text-slate-400" : "text-slate-900"
@@ -91,6 +93,7 @@ const SideBar = ({ cities }: SideBarProps) => {
               <SelectItem value="">Wybierz województwo</SelectItem>
               {uniqueCities.map((city, i) => (
                 <SelectItem
+                  data-testid="SelectVoivodeship"
                   value={city.voivodeship}
                   key={`${city.voivodeship}, ${i}`}
                 >
@@ -100,9 +103,13 @@ const SideBar = ({ cities }: SideBarProps) => {
             </SelectContent>
           </Select>
         </div>
-        <div className="flex flex-col gap-2 overflow-auto px-4 pt-8">
+        <div
+          className="flex flex-col gap-2 overflow-auto px-4 pt-8"
+          data-testid="CitiesList"
+        >
           {filteredCities.map((city, i) => (
             <NavLink
+              data-testid="SelectCity"
               to={`cities/${city.name.toLowerCase()}`}
               className={({ isActive, isPending }) =>
                 `w-full rounded-md border border-gray-200 py-2 pl-3 ${
@@ -119,6 +126,7 @@ const SideBar = ({ cities }: SideBarProps) => {
           <Link
             to="add-city"
             className="block w-full rounded-md bg-slate-900 px-4 py-2 text-center text-white transition-colors hover:bg-slate-700"
+            data-testid="AddCityButton"
           >
             Dodaj nowe miasto
           </Link>

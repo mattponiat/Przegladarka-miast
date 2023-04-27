@@ -24,6 +24,7 @@ const FieldDesc = ({ field, errors }: Props) => {
         Opis miasta
       </Label>
       <Textarea
+        data-testid="DescInput"
         id="desc"
         name="desc"
         placeholder="Wpisz opis miasta"

@@ -24,6 +24,7 @@ const FieldPlaces = ({ field, errors }: Props) => {
         Znane miejsca
       </Label>
       <Textarea
+        data-testid="KnownPlacesInput"
         id="known_places"
         name="known_places"
         placeholder="Wpisz znane miejsca oddzielone przecinkami"

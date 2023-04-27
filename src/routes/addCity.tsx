@@ -171,6 +171,7 @@ const AddCity = () => {
           <button
             type="submit"
             className="mt-auto w-40 rounded-md bg-slate-900 px-4 py-2 text-center text-sm text-white transition-colors hover:bg-slate-700"
+            data-testid="SubmitAddCityButton"
           >
             Dodaj nowe miasto
           </button>

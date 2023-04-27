@@ -40,6 +40,7 @@ const FieldVoivodeship = ({ field, errors }: Props) => {
         name="voivodeship"
       >
         <SelectTrigger
+          data-testid="SelectVoivodeshipList2"
           className={field.value === "" ? "text-slate-400" : "text-slate-900"}
           id="voivodeship"
           name="voivodeship"
@@ -51,7 +52,11 @@ const FieldVoivodeship = ({ field, errors }: Props) => {
             Wybierz województwo
           </SelectItem>
           {allVoivodeships.map((voivodeship) => (
-            <SelectItem key={voivodeship} value={voivodeship}>
+            <SelectItem
+              data-testid="SelectVoivodeship2"
+              key={voivodeship}
+              value={voivodeship}
+            >
               {voivodeship}
             </SelectItem>
           ))}

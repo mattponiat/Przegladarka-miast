@@ -38,13 +38,14 @@ const City = () => {
               </h1>
               <div className="flex gap-3">
                 <Link
+                  data-testid="EditCityButton"
                   to={`/cities/${city.name.toLowerCase()}/edit`}
                   className="flex items-center"
                 >
                   <Pencil size={16} />
                 </Link>
                 <Dialog>
-                  <DialogTrigger>
+                  <DialogTrigger data-testid="DeleteCityModal">
                     <Trash2 size={16} />
                   </DialogTrigger>
                   <DialogContent>
@@ -58,6 +59,7 @@ const City = () => {
                     </DialogDescription>
                     <DialogFooter>
                       <Link
+                        data-testid="DeleteCityButton"
                         to="/"
                         onClick={handleDeleteCity}
                         className="w-32 rounded-md bg-slate-900 px-4 py-2 text-center text-sm text-white transition-colors hover:bg-slate-700"

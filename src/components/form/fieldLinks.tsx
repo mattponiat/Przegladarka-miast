@@ -24,6 +24,7 @@ const FieldLink = ({ field, errors }: Props) => {
         Interesujące linki
       </Label>
       <Textarea
+        data-testid="LinksInput"
         id="links"
         name="links"
         placeholder="Wpisz interesujące linki oddzielone przecinkami"
