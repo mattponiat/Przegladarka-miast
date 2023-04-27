@@ -8,28 +8,39 @@ import {
   SelectValue,
 } from "../ui/select";
 import { allVoivodeships } from "../../data/allVoivodeships";
+import { ControllerRenderProps } from "react-hook-form";
 
-const FieldVoivodeship = ({ city, updateCity }: FormFieldProps) => {
+type Props = {
+  field: ControllerRenderProps<
+    {
+      name: string;
+      voivodeship: string;
+      picture_url: string;
+      description: string;
+      links: string;
+      known_places: string;
+    },
+    "voivodeship"
+  >;
+} & FormFieldProps;
+
+const FieldVoivodeship = ({ field, errors }: Props) => {
   return (
     <div className="flex max-w-[287px] flex-col gap-[6px]">
       <Label htmlFor="voivodeship" className="w-fit font-medium">
         Województwo
       </Label>
       <Select
-        onValueChange={(value) => updateCity({ voivodeship: value })}
         defaultValue={
-          allVoivodeships.filter(
-            (voivodeship) => voivodeship === city.voivodeship
-          )
-            ? city.voivodeship
+          allVoivodeships.filter((voivodeship) => voivodeship === field.value)
+            ? field.value
             : ""
         }
+        onValueChange={field.onChange}
         name="voivodeship"
       >
         <SelectTrigger
-          className={
-            city.voivodeship === "" ? "text-slate-400" : "text-slate-900"
-          }
+          className={field.value === "" ? "text-slate-400" : "text-slate-900"}
           id="voivodeship"
           name="voivodeship"
         >
@@ -46,6 +57,9 @@ const FieldVoivodeship = ({ city, updateCity }: FormFieldProps) => {
           ))}
         </SelectContent>
       </Select>
+      <p className="text-sm text-muted-foreground">
+        {errors.voivodeship?.message}
+      </p>
     </div>
   );
 };

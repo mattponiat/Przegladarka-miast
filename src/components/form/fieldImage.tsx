@@ -1,23 +1,39 @@
+import { ControllerRenderProps } from "react-hook-form";
 import { FormFieldProps } from "../../types/types";
 import Input from "../ui/input";
 import Label from "../ui/label";
 
-const FieldImage = ({ city, updateCity }: FormFieldProps) => {
+type Props = {
+  field: ControllerRenderProps<
+    {
+      name: string;
+      voivodeship: string;
+      picture_url: string;
+      description: string;
+      links: string;
+      known_places: string;
+    },
+    "picture_url"
+  >;
+} & FormFieldProps;
+
+const FieldImage = ({ field, errors }: Props) => {
   return (
     <div className="flex max-w-[287px] flex-col gap-[6px]">
-      <Label htmlFor="image" className="w-fit font-medium">
+      <Label htmlFor="picture_url" className="w-fit font-medium">
         Zdjęcie
       </Label>
       <Input
         type="text"
-        id="image"
-        name="image"
+        id="picture_url"
+        name="picture_url"
         placeholder="Wprowadź URL do zdjęcia miasta"
-        value={city.picture_url}
-        onChange={(e) => {
-          updateCity({ picture_url: e.currentTarget.value });
-        }}
+        value={field.value}
+        onChange={field.onChange}
       />
+      <p className="text-sm text-muted-foreground">
+        {errors.picture_url?.message}
+      </p>
     </div>
   );
 };

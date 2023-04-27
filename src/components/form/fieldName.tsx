@@ -1,23 +1,37 @@
+import { ControllerRenderProps } from "react-hook-form";
 import { FormFieldProps } from "../../types/types";
 import Input from "../ui/input";
 import Label from "../ui/label";
 
-const FieldName = ({ city, updateCity }: FormFieldProps) => {
+type Props = {
+  field: ControllerRenderProps<
+    {
+      name: string;
+      voivodeship: string;
+      picture_url: string;
+      description: string;
+      links: string;
+      known_places: string;
+    },
+    "name"
+  >;
+} & FormFieldProps;
+
+const FieldName = ({ field, errors }: Props) => {
   return (
     <div className="flex max-w-[287px] flex-col gap-[6px]">
-      <Label htmlFor="cityName" className="w-fit font-medium">
+      <Label htmlFor="name" className="w-fit font-medium">
         Nazwa miasta
       </Label>
       <Input
         type="text"
-        id="cityName"
-        name="cityName"
+        id="name"
+        name="name"
         placeholder="Wpisz nazwę miasta"
-        value={city.name}
-        onChange={(e) => {
-          updateCity({ name: e.currentTarget.value });
-        }}
+        value={field.value}
+        onChange={field.onChange}
       />
+      <p className="text-sm text-muted-foreground">{errors.name?.message}</p>
     </div>
   );
 };

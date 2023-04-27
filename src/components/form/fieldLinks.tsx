@@ -1,8 +1,23 @@
+import { ControllerRenderProps } from "react-hook-form";
 import { FormFieldProps } from "../../types/types";
 import Label from "../ui/label";
 import { Textarea } from "../ui/textarea";
 
-const FieldLink = ({ city, updateCity }: FormFieldProps) => {
+type Props = {
+  field: ControllerRenderProps<
+    {
+      name: string;
+      voivodeship: string;
+      picture_url: string;
+      description: string;
+      links: string;
+      known_places: string;
+    },
+    "links"
+  >;
+} & FormFieldProps;
+
+const FieldLink = ({ field, errors }: Props) => {
   return (
     <div className="flex max-w-[530px] flex-col gap-[6px]">
       <Label htmlFor="links" className="w-fit font-medium">
@@ -12,11 +27,10 @@ const FieldLink = ({ city, updateCity }: FormFieldProps) => {
         id="links"
         name="links"
         placeholder="Wpisz interesujące linki oddzielone przecinkami"
-        value={city.links}
-        onChange={(e) =>
-          updateCity({ links: e.currentTarget.value.split(",") })
-        }
+        value={field.value}
+        onChange={field.onChange}
       />
+      <p className="text-sm text-muted-foreground">{errors.links?.message}</p>
     </div>
   );
 };

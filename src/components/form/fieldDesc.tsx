@@ -1,8 +1,23 @@
+import { ControllerRenderProps } from "react-hook-form";
 import { FormFieldProps } from "../../types/types";
 import Label from "../ui/label";
 import { Textarea } from "../ui/textarea";
 
-const FieldDesc = ({ city, updateCity }: FormFieldProps) => {
+type Props = {
+  field: ControllerRenderProps<
+    {
+      name: string;
+      voivodeship: string;
+      picture_url: string;
+      description: string;
+      links: string;
+      known_places: string;
+    },
+    "description"
+  >;
+} & FormFieldProps;
+
+const FieldDesc = ({ field, errors }: Props) => {
   return (
     <div className="flex max-w-[530px] flex-col gap-[6px]">
       <Label htmlFor="desc" className="w-fit font-medium">
@@ -12,9 +27,12 @@ const FieldDesc = ({ city, updateCity }: FormFieldProps) => {
         id="desc"
         name="desc"
         placeholder="Wpisz opis miasta"
-        value={city.description}
-        onChange={(e) => updateCity({ description: e.currentTarget.value })}
+        value={field.value}
+        onChange={field.onChange}
       />
+      <p className="text-sm text-muted-foreground">
+        {errors.description?.message}
+      </p>
     </div>
   );
 };
