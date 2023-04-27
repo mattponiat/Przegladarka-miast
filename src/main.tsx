@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Root, { rootLoader } from "./routes/root.tsx";
+import Root, { rootLoader } from "./routes/root";
 import "./index.css";
-import Header from "./components/header.tsx";
+import Header from "./components/header";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import City, { cityLoader } from "./routes/city.tsx";
-import AddCity from "./routes/addCity.tsx";
-import EditCity, { editCityLoader } from "./routes/editCity.tsx";
+import City, { cityLoader } from "./routes/city";
+import AddCity from "./routes/addCity";
+import EditCity, { editCityLoader } from "./routes/editCity";
 
 const router = createBrowserRouter([
   {
