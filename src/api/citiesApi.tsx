@@ -31,7 +31,6 @@ export const getCity = async (name: Cities["name"]) => {
 
 /**
  * Add new city with given props.
- * Returns city's data and post status
  */
 export const addCity = async ({
   name,
@@ -41,7 +40,7 @@ export const addCity = async ({
   known_places,
   links,
 }: Cities) => {
-  const { data, status } = await citiesApi.post<Cities>(citiesUrlEndpoint, {
+  const { data } = await citiesApi.post<Cities>(citiesUrlEndpoint, {
     name,
     voivodeship,
     description,
@@ -50,17 +49,14 @@ export const addCity = async ({
     links,
   });
 
-  return { data, status };
+  return data;
 };
 
 /**
  * Update passed city's data
  */
-export const updateCity = async (city: Cities) => {
-  const { data } = await citiesApi.patch(
-    `${citiesUrlEndpoint}/${city.id}`,
-    city
-  );
+export const updateCity = async (city: Cities, id: Cities["id"]) => {
+  const { data } = await citiesApi.patch(`${citiesUrlEndpoint}/${id}`, city);
 
   return data;
 };
