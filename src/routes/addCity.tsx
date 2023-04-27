@@ -1,8 +1,9 @@
-import * as React from "react";
-import SideBarLayout from "../components/sideBarLayout";
 import { addCity } from "../api/citiesApi";
-import { Form, Link } from "react-router-dom";
-import { Cities } from "../types/types";
+import { Form, useNavigate, useRevalidator } from "react-router-dom";
+import { z } from "zod";
+import { Controller, useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import SideBarLayout from "../components/sideBarLayout";
 import FieldName from "../components/form/fieldName";
 import FieldVoivodeship from "../components/form/fieldVoivodeship";
 import FieldImage from "../components/form/fieldImage";
@@ -10,67 +11,156 @@ import FieldDesc from "../components/form/fieldDesc";
 import FieldLink from "../components/form/fieldLinks";
 import FieldPlaces from "../components/form/fieldPlaces";
 
+const polishAlphabetRegex = /^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ-]+$/;
+
+//Check if an image provided in url returns a real image
+const isImage = async (url: string): Promise<boolean> => {
+  try {
+    const response = await fetch(url, { method: "HEAD" });
+    const contentType = response.headers.get("content-type");
+    return contentType != null && contentType.startsWith("image/");
+  } catch (err) {
+    throw new Error("Failed to fetch image from URL");
+  }
+};
+
+export const schema = z
+  .object({
+    name: z
+      .string()
+      .trim()
+      .nonempty("Nazwa miasta jest wymagana")
+      .refine(
+        (input) => polishAlphabetRegex.test(input),
+        "Nazwa może zawierać jedynie znaki polskiego alfabetu oraz myślniki"
+      ),
+    voivodeship: z.string().nonempty("Województwo jest wymagane"),
+    picture_url: z
+      .string()
+      .url()
+      .nonempty("URL zdjęcia miasta jest wymagany")
+      .refine(async (url) => {
+        try {
+          return await isImage(url);
+        } catch (err) {
+          return false;
+        }
+      }, "Nieprawidłowy URL zdjęcia"),
+    description: z
+      .string()
+      .min(25, "Opis miasta musi zawierać minimum 25 znaków")
+      .max(2000, "Opis miasta może zawierać maksymalnie 2000 znaków"),
+    links: z
+      .string()
+      .url("Link jest nieprawidłowy")
+      .nonempty("Linki są wymagane"),
+    known_places: z
+      .string()
+      .min(10, "Znane miejsca muszą mieć minimum 10 znaków")
+      .max(40, "Znane miejsca mogą mieć maksymalnie 40 znaków"),
+  })
+  .required();
+export type FormData = z.infer<typeof schema>;
+
 const AddCity = () => {
-  const [status, setStatus] = React.useState(0);
-  const [city, updateCity] = React.useReducer(
-    (prev: Cities, next: Partial<Cities>) => {
-      return { ...prev, ...next };
-    },
-    {
+  const {
+    register,
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm<FormData>({
+    resolver: zodResolver(schema),
+    defaultValues: {
       name: "",
       voivodeship: "",
-      description: "",
       picture_url: "",
-      known_places: [""],
-      links: [""],
-    }
-  );
+      description: "",
+      links: "",
+      known_places: "",
+    },
+  });
 
-  const handleOnSubmit = async () => {
+  const navigation = useNavigate();
+  const revalidator = useRevalidator();
+
+  const handleOnSubmit = async (formData: FormData) => {
+    //Trim white space and convert strings into array of strings on "links" and "known_places"
     await addCity({
-      name: city.name,
-      voivodeship: city.voivodeship,
-      description: city.description,
-      picture_url: city.picture_url,
-      //Trim white space
-      known_places: city.known_places
-        .join(",")
-        .trim()
-        .split(",")
-        .map((place) => place.trim()),
-      //Trim white space
-      links: city.links
-        .join(",")
+      name: formData.name,
+      voivodeship: formData.voivodeship,
+      picture_url: formData.picture_url,
+      description: formData.description,
+      links: formData.links
         .trim()
         .split(",")
         .map((link) => link.trim()),
-    }).then((e) => setStatus(e.status));
+      known_places: formData.known_places
+        .trim()
+        .split(",")
+        .map((place) => place.trim()),
+    });
+    revalidator.revalidate();
+    navigation(`/cities/${formData.name}`);
   };
 
   return (
-    <main className="full-height flex w-full">
+    <main className="full-height flex w-full overflow-hidden">
       <SideBarLayout />
-      <div className="flex h-full w-full flex-col px-6 pb-6 pt-8">
+      <div className="flex h-full w-full flex-col overflow-auto px-6 pb-6 pt-8">
         <h1 className="mb-6 text-[32px] font-semibold">Dodaj nowe miasto</h1>
         <Form
-          method="post"
+          method="POST"
+          onSubmit={handleSubmit(handleOnSubmit)}
           className="flex h-full flex-col gap-5"
-          onSubmit={(e) => e.preventDefault()}
         >
-          <FieldName city={city} updateCity={updateCity} />
-          <FieldVoivodeship city={city} updateCity={updateCity} />
-          <FieldImage city={city} updateCity={updateCity} />
-          <FieldDesc city={city} updateCity={updateCity} />
-          <FieldLink city={city} updateCity={updateCity} />
-          <FieldPlaces city={city} updateCity={updateCity} />
-          <Link
-            to={`/cities/${city.name}`}
+          <Controller
+            control={control}
+            name="name"
+            render={({ field }) => {
+              return <FieldName {...register} errors={errors} field={field} />;
+            }}
+          />
+          <Controller
+            control={control}
+            name="voivodeship"
+            render={({ field }) => (
+              <FieldVoivodeship {...register} errors={errors} field={field} />
+            )}
+          />
+          <Controller
+            control={control}
+            name="picture_url"
+            render={({ field }) => (
+              <FieldImage {...register} errors={errors} field={field} />
+            )}
+          />
+          <Controller
+            control={control}
+            name="description"
+            render={({ field }) => (
+              <FieldDesc {...register} errors={errors} field={field} />
+            )}
+          />
+          <Controller
+            control={control}
+            name="links"
+            render={({ field }) => (
+              <FieldLink {...register} errors={errors} field={field} />
+            )}
+          />
+          <Controller
+            control={control}
+            name="known_places"
+            render={({ field }) => (
+              <FieldPlaces {...register} errors={errors} field={field} />
+            )}
+          />
+          <button
             type="submit"
             className="mt-auto w-40 rounded-md bg-slate-900 px-4 py-2 text-center text-sm text-white transition-colors hover:bg-slate-700"
-            onClick={handleOnSubmit}
           >
             Dodaj nowe miasto
-          </Link>
+          </button>
         </Form>
       </div>
     </main>
