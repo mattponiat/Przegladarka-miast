@@ -1,14 +1,15 @@
 import {
   Form,
+  LoaderFunctionArgs,
   useLoaderData,
   useNavigate,
   useRevalidator,
 } from "react-router-dom";
 import { cityLoader } from "./city";
-import { updateCity } from "../api/citiesApi";
+import { getCities, getCity, updateCity } from "../api/citiesApi";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
-import { schema, FormData } from "./addCity";
+// import { schema, FormData } from "./addCity";
 import FieldDesc from "../components/form/fieldDesc";
 import FieldImage from "../components/form/fieldImage";
 import FieldLink from "../components/form/fieldLinks";
@@ -16,10 +17,57 @@ import FieldName from "../components/form/fieldName";
 import FieldPlaces from "../components/form/fieldPlaces";
 import FieldVoivodeship from "../components/form/fieldVoivodeship";
 import SideBarLayout from "../components/sideBarLayout";
+import { z } from "zod";
+import { isImage, polishAlphabetRegex } from "./addCity";
 
 const EditCity = () => {
-  const { city } = useLoaderData() as Awaited<ReturnType<typeof cityLoader>>;
+  const { city, cities } = useLoaderData() as Awaited<
+    ReturnType<typeof editCityLoader>
+  >;
   if (!city) throw new Error("City not found");
+
+  const editCitySchema = z
+    .object({
+      name: z
+        .string()
+        .trim()
+        .nonempty("Nazwa miasta jest wymagana")
+        .refine(
+          (input) => polishAlphabetRegex.test(input),
+          "Nazwa może zawierać jedynie znaki polskiego alfabetu oraz myślniki"
+        )
+        .refine((input) => {
+          const existingCity = cities.find(
+            (city) => city.name.toLowerCase() === input.trim().toLowerCase()
+          );
+          if (existingCity) {
+            return false;
+          }
+          return true;
+        }, "Nazwa miasta już istnieje"),
+      voivodeship: z.string().nonempty("Województwo jest wymagane"),
+      picture_url: z
+        .string()
+        .url("Nieprawidłowy URL zdjęcia")
+        .refine(async (url) => {
+          try {
+            return await isImage(url);
+          } catch (err) {
+            return false;
+          }
+        }, "Nieprawidłowy URL zdjęcia"),
+      description: z
+        .string()
+        .min(25, "Opis miasta musi zawierać minimum 25 znaków")
+        .max(2000, "Opis miasta może zawierać maksymalnie 2000 znaków"),
+      links: z.string().url("Link jest nieprawidłowy"),
+      known_places: z
+        .string()
+        .min(10, "Znane miejsca muszą mieć minimum 10 znaków")
+        .max(40, "Znane miejsca mogą mieć maksymalnie 40 znaków"),
+    })
+    .required();
+  type FormData = z.infer<typeof editCitySchema>;
 
   const {
     register,
@@ -27,7 +75,7 @@ const EditCity = () => {
     control,
     formState: { errors },
   } = useForm<FormData>({
-    resolver: zodResolver(schema),
+    resolver: zodResolver(editCitySchema),
     defaultValues: {
       name: city.name,
       voivodeship: city.voivodeship,
@@ -128,6 +176,24 @@ const EditCity = () => {
       </div>
     </main>
   );
+};
+
+//React router data loader
+type loaderProps = {
+  params: {
+    name: string;
+  };
+};
+
+export const editCityLoader = async ({
+  params,
+}: LoaderFunctionArgs | loaderProps) => {
+  if (!params.name) throw new Error("No city name found");
+
+  const city = await getCity(params.name.toLowerCase());
+  const cities = await getCities();
+
+  return { cities, city };
 };
 
 export default EditCity;

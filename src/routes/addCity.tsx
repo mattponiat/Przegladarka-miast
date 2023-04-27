@@ -1,5 +1,10 @@
 import { addCity } from "../api/citiesApi";
-import { Form, useNavigate, useRevalidator } from "react-router-dom";
+import {
+  Form,
+  useLoaderData,
+  useNavigate,
+  useRevalidator,
+} from "react-router-dom";
 import { z } from "zod";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -10,11 +15,12 @@ import FieldImage from "../components/form/fieldImage";
 import FieldDesc from "../components/form/fieldDesc";
 import FieldLink from "../components/form/fieldLinks";
 import FieldPlaces from "../components/form/fieldPlaces";
+import { rootLoader } from "./root";
 
-const polishAlphabetRegex = /^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ-]+$/;
+export const polishAlphabetRegex = /^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ-]+$/;
 
 //Check if an image provided in url returns a real image
-const isImage = async (url: string): Promise<boolean> => {
+export const isImage = async (url: string): Promise<boolean> => {
   try {
     const response = await fetch(url, { method: "HEAD" });
     const contentType = response.headers.get("content-type");
@@ -24,52 +30,59 @@ const isImage = async (url: string): Promise<boolean> => {
   }
 };
 
-export const schema = z
-  .object({
-    name: z
-      .string()
-      .trim()
-      .nonempty("Nazwa miasta jest wymagana")
-      .refine(
-        (input) => polishAlphabetRegex.test(input),
-        "Nazwa może zawierać jedynie znaki polskiego alfabetu oraz myślniki"
-      ),
-    voivodeship: z.string().nonempty("Województwo jest wymagane"),
-    picture_url: z
-      .string()
-      .url()
-      .nonempty("URL zdjęcia miasta jest wymagany")
-      .refine(async (url) => {
-        try {
-          return await isImage(url);
-        } catch (err) {
-          return false;
-        }
-      }, "Nieprawidłowy URL zdjęcia"),
-    description: z
-      .string()
-      .min(25, "Opis miasta musi zawierać minimum 25 znaków")
-      .max(2000, "Opis miasta może zawierać maksymalnie 2000 znaków"),
-    links: z
-      .string()
-      .url("Link jest nieprawidłowy")
-      .nonempty("Linki są wymagane"),
-    known_places: z
-      .string()
-      .min(10, "Znane miejsca muszą mieć minimum 10 znaków")
-      .max(40, "Znane miejsca mogą mieć maksymalnie 40 znaków"),
-  })
-  .required();
-export type FormData = z.infer<typeof schema>;
-
 const AddCity = () => {
+  const { cities } = useLoaderData() as Awaited<ReturnType<typeof rootLoader>>;
+
+  const addCitySchema = z
+    .object({
+      name: z
+        .string()
+        .trim()
+        .nonempty("Nazwa miasta jest wymagana")
+        .refine(
+          (input) => polishAlphabetRegex.test(input),
+          "Nazwa może zawierać jedynie znaki polskiego alfabetu oraz myślniki"
+        )
+        .refine((input) => {
+          const existingCity = cities.find(
+            (city) => city.name.toLowerCase() === input.trim().toLowerCase()
+          );
+          if (existingCity) {
+            return false;
+          }
+          return true;
+        }, "Nazwa miasta już istnieje"),
+      voivodeship: z.string().nonempty("Województwo jest wymagane"),
+      picture_url: z
+        .string()
+        .url("Nieprawidłowy URL zdjęcia")
+        .refine(async (url) => {
+          try {
+            return await isImage(url);
+          } catch (err) {
+            return false;
+          }
+        }, "Nieprawidłowy URL zdjęcia"),
+      description: z
+        .string()
+        .min(25, "Opis miasta musi zawierać minimum 25 znaków")
+        .max(2000, "Opis miasta może zawierać maksymalnie 2000 znaków"),
+      links: z.string().url("Link jest nieprawidłowy"),
+      known_places: z
+        .string()
+        .min(10, "Znane miejsca muszą mieć minimum 10 znaków")
+        .max(40, "Znane miejsca mogą mieć maksymalnie 40 znaków"),
+    })
+    .required();
+  type FormData = z.infer<typeof addCitySchema>;
+
   const {
     register,
     handleSubmit,
     control,
     formState: { errors },
   } = useForm<FormData>({
-    resolver: zodResolver(schema),
+    resolver: zodResolver(addCitySchema),
     defaultValues: {
       name: "",
       voivodeship: "",
