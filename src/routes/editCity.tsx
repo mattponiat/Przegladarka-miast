@@ -5,11 +5,9 @@ import {
   useNavigate,
   useRevalidator,
 } from "react-router-dom";
-import { cityLoader } from "./city";
 import { getCities, getCity, updateCity } from "../api/citiesApi";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
-// import { schema, FormData } from "./addCity";
 import FieldDesc from "../components/form/fieldDesc";
 import FieldImage from "../components/form/fieldImage";
 import FieldLink from "../components/form/fieldLinks";
