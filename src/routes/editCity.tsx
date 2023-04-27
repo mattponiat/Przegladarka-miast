@@ -35,10 +35,13 @@ const EditCity = () => {
           "Nazwa może zawierać jedynie znaki polskiego alfabetu oraz myślniki"
         )
         .refine((input) => {
+          //Don't show zod errror if the given name is the same as current city's name
           const existingCity = cities.find(
             (city) => city.name.toLowerCase() === input.trim().toLowerCase()
           );
-          if (existingCity) {
+          if (existingCity?.name === city.name) {
+            return true;
+          } else if (existingCity) {
             return false;
           }
           return true;
@@ -88,8 +91,6 @@ const EditCity = () => {
   const revalidator = useRevalidator();
 
   const handleOnSubmit = async (formData: FormData) => {
-    if (!city.id) throw new Error("No city found");
-
     //Trim white space and convert strings into array of strings on "links" and "known_places"
     await updateCity(
       {
