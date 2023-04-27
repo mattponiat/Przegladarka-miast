@@ -100,7 +100,7 @@ const SideBar = ({ cities }: SideBarProps) => {
             </SelectContent>
           </Select>
         </div>
-        <div className="flex flex-col gap-2 px-4 pt-8">
+        <div className="flex flex-col gap-2 overflow-auto px-4 pt-8">
           {filteredCities.map((city, i) => (
             <NavLink
               to={`cities/${city.name.toLowerCase()}`}
@@ -115,7 +115,7 @@ const SideBar = ({ cities }: SideBarProps) => {
             </NavLink>
           ))}
         </div>
-        <div className="mt-auto px-4">
+        <div className="mt-auto px-4 pt-6">
           <Link
             to="add-city"
             className="block w-full rounded-md bg-slate-900 px-4 py-2 text-center text-white transition-colors hover:bg-slate-700"
