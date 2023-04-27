@@ -1,3 +1,5 @@
+import { FieldErrors } from "react-hook-form";
+
 export type Cities = {
   id?: number;
   name: string;
@@ -9,6 +11,12 @@ export type Cities = {
 };
 
 export type FormFieldProps = {
-  city: Cities;
-  updateCity: React.Dispatch<Partial<Cities>>;
+  errors: FieldErrors<{
+    name: string;
+    voivodeship: string;
+    description: string;
+    picture_url: string;
+    known_places: string[];
+    links: string[];
+  }>;
 };
